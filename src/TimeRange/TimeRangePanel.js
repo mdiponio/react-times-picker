@@ -28,12 +28,11 @@ class TimeRangePanel extends React.Component
     }
 
     componentWillMount() {
-        window.document.addEventListener("touchstart", this._closeMe);
-        window.document.addEventListener("mousedown", this._closeMe);
+        document.addEventListener("touchstart", this._closeMe);
+        document.addEventListener("mousedown", this._closeMe);
     }
 
     _closeMe = (e) => {
-        console.log(e);
         if (this.props.onClose && !e.defaultPrevented)
             this.props.onClose();
     };
@@ -115,8 +114,8 @@ class TimeRangePanel extends React.Component
     }
 
     componentWillUnmount() {
-        document.body.removeEventListener("touchstart", this._closeMe);
-        document.body.removeEventListener("mousedown", this._closeMe);
+        document.removeEventListener("touchstart", this._closeMe);
+        document.removeEventListener("mousedown", this._closeMe);
     }
 }
 

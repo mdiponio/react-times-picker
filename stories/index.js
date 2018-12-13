@@ -3,9 +3,11 @@ import React from 'react';
 import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 
-import {TimeRange} from "../src";
+import {TimeRange, TimePicker} from "../src";
+
 import "../src/TimeRange/ScrollColumn.css";
 import "../src/TimeRange/TimeRange.css";
+
 
 const styles = {
 
@@ -42,12 +44,31 @@ let currentState = {
 const adaptState = (cb) => (from, to) => {
     currentState.from = from;
     currentState.to = to;
+
     action("new state")(currentState);
     cb(currentState)
 };
 
 
-storiesOf('Date Picker', module)
+storiesOf('Time Ranger Picker', module)
+    .addDecorator(CenterDecorator)
+    .add('1', () => {
+        return <StateContainer>
+            {
+                (state, changeState) => {
+                    return <TimeRange
+                        className={"blah"}
+                        from={state.from || currentState.from}
+                        to={state.to || currentState.to}
+                        step={5}
+                        onSelect={adaptState(changeState)}/>
+                }
+            }
+        </StateContainer>
+    });
+
+
+storiesOf('Time Picker', module)
     .addDecorator(CenterDecorator)
     .add('1', () => {
 
@@ -56,10 +77,10 @@ storiesOf('Date Picker', module)
         return <StateContainer>
             {
                 (state, changeState) => {
-                    return <TimeRange
+                    return <TimePicker
                         className={"blah"}
-                        from={state.from || currentState.from}
-                        to={state.to || currentState.to}
+                        time={state.from || currentState.from}
+                        step={5}
                         onSelect={adaptState(changeState)}/>
                 }
             }

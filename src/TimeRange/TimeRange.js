@@ -4,6 +4,7 @@ import classNames from "classnames";
 import {formatMin} from "../utils/utility";
 
 import TimeRangePanel from "./TimeRangePanel";
+import Event from "./Event";
 
 /**
  * Selectable time range.
@@ -30,10 +31,6 @@ export class TimeRange extends React.Component {
             from: false,
             to: false
         };
-
-        /** @type {boolean} Whether event handler was assigned for each event handler. */
-        this._assignedFrom = false;
-        this._assignedTo = false;
     }
 
     /**
@@ -91,35 +88,32 @@ export class TimeRange extends React.Component {
             this.props.onSelect(from, to);
     };
 
-    _assignClick = (n, from) => {
-        if (!n || (from && this._assignedFrom) || (!from && this._assignedTo)) return;
+    _toggleFromOpen = (e) => {
+        e.preventDefault();
+        this._toggleOpen(true);
+    };
 
-        const handler = (e) => {
-            e.preventDefault();
-            this._toggleOpen(from);
-        };
-
-        n.addEventListener("mousedown", handler);
-        n.addEventListener("touchstart", handler);
-
-        if (from) this._assignedFrom = true;
-        if (!from) this._assignedTo = true;
+    _toggleToOpen = (e) => {
+        e.preventDefault();
+        this._toggleOpen(false);
     };
 
     render() {
         return (
             <div className={"time-selector " + this.props.className}>
-                <span className={ classNames({"time-from": true, "open": this.state.open && this.state.from })}
-                      ref={n => this._assignClick(n, true)}>
+                <Event type="span" className={ classNames({"time-from": true, "open": this.state.open && this.state.from })}
+                       onMouseDown={this._toggleFromOpen} onTouchStart={this._toggleFromOpen}>
                     {formatMin(this.props.from)}
-                </span>
+                </Event>
+
                 <svg viewBox="0 0 1000 1000">
                     <path d="M694.4 242.4l249.1 249.1c11 11 11 21 0 32L694.4 772.7c-5 5-10 7-16 7s-11-2-16-7c-11-11-11-21 0-32l210.1-210.1H67.1c-13 0-23-10-23-23s10-23 23-23h805.4L662.4 274.5c-21-21.1 11-53.1 32-32.1z"></path>
                 </svg>
-                <span className={ classNames({"time-to": true, "open": this.state.open && this.state.to })}
-                      ref={n => this._assignClick(n, false)}>
+
+                <Event type="span" className={ classNames({"time-to": true, "open": this.state.open && this.state.to })}
+                       onMouseDown={this._toggleToOpen} onTouchStart={this._toggleToOpen}>
                     {formatMin(this.props.to)}
-                </span>
+                </Event>
 
                 {this.state.open && <TimeRangePanel left={this.state.from}
                                                     min={this.state.from ? this.props.from : this.props.to}
