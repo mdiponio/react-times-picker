@@ -56,7 +56,7 @@ storiesOf('Time Ranger Picker', module)
         return <StateContainer>
             {
                 (state, changeState) => {
-                    return <TimeRange
+                    return <TimeRangePicker
                         className={"blah"}
                         from={state.from || currentState.from}
                         to={state.to || currentState.to}
