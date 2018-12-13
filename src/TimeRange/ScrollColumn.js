@@ -348,7 +348,7 @@ class ScrollColumn extends React.Component {
         {
             for (const v of this.state.range)
             {
-                if (v instanceof String && v.toUpperCase().startsWith(value.toUpperCase()))
+                if (("" + v).toUpperCase().startsWith(value.toUpperCase()))
                 {
                     this._setValue(v);
                     break;
@@ -440,7 +440,7 @@ class ScrollColumn extends React.Component {
                     <div className="scroll-clip">
                         <ul ref={this._mounted}>
                             {this.state.range.map((v, i) =>
-                                <li key={i}>
+                                <li key={i} className={classNames({ "scroll-selected-value": this.props.value === v})}>
                                     {this._displayValue(v)}
                                 </li>
                             )}

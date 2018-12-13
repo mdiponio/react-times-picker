@@ -1,0 +1,55 @@
+.time-selector-dark {
+    background-color: #484e58;
+    color: #ffffff;
+}
+
+.time-selector-dark > svg path {
+    fill: #ffffff;
+}
+
+.time-selector-dark .open {
+    border-bottom: 2px solid #f58520;
+}
+
+.time-selector-dark .time-range-panel {
+    background-color: #484e58;
+}
+
+.time-selector-dark .panel-arrow > path:first-child {
+    fill: #484e58;
+}
+
+.time-selector-dark .panel-arrow > path:last-child {
+    stroke: #f58520;
+    fill: none;
+}
+
+.time-selector-dark .scroll-column-stack button {
+    color: #ffffff;
+}
+
+.time-selector-dark .scroll-column-stack > input {
+    background-color: #f58520;
+    box-shadow: 0 0 3px inset rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+.time-selector-dark .scroll-column {
+    border-left: 1px solid #ffffff;;
+    border-right: 1px solid #ffffff;
+}
+
+.time-selector-dark .selected-region {
+    background-color: rgba(234, 133, 32, 0.9);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.time-selector-dark .selected-region-top {
+    border-bottom: 2px solid #e4e7e7;
+    background: linear-gradient(rgba(72, 78, 88, 1) 10%, rgba(72, 78, 88, 0.2) 95%, transparent 100%);
+}
+
+.time-selector-dark .selected-region-bottom {
+    border-top: 2px solid #e4e7e7;
+    background:  linear-gradient(transparent 0%, rgba(72, 78, 88, 0.2) 5%, rgba(72, 78, 88, 1) 100%);
+}

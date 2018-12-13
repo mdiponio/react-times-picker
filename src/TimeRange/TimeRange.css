@@ -1,10 +1,8 @@
 .time-selector {
     font-size: 19px;
     height: 45px;
-    background-color: #484e58;
     position: relative;
     width: fit-content;
-    color: white;
 }
 
 .time-selector > span {
@@ -22,13 +20,6 @@
     transform: translate(0, 5px);
 }
 
-.time-selector > svg path {
-    fill: #ffffff;
-}
-
-.time-selector .open {
-    border-bottom: 2px solid #f58520;
-}
 
 .time-range-panel {
     position: absolute;
@@ -36,7 +27,6 @@
     top: 66px;
     width: 180px;
     padding: 10px 20px;
-    background-color: #484e58;
     z-index: 1;
 }
 
@@ -54,16 +44,6 @@
 .time-range-panel > .arrow-right {
     left: 122px;
 }
-
-.panel-arrow > path:first-child {
-    fill: #484e58;
-}
-
-.panel-arrow > path:last-child {
-    stroke: #f58520;
-    fill: none;
-}
-
 
 .time-range-panel .time-columns {;
     display: grid;

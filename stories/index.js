@@ -7,6 +7,8 @@ import {TimeRangePicker, TimePicker} from "../src";
 
 import "../src/TimeRange/ScrollColumn.css";
 import "../src/TimeRange/TimeRange.css";
+import "../src/TimeRange/ThemeDark.css";
+import "../src/TimeRange/ThemeLight.css";
 
 
 const styles = {
@@ -65,6 +67,21 @@ storiesOf('Time Ranger Picker', module)
                 }
             }
         </StateContainer>
+    })
+    .add('dark theme', () => {
+        return <StateContainer>
+            {
+                (state, changeState) => {
+                    return <TimeRangePicker
+                        className={"blah"}
+                        from={state.from || currentState.from}
+                        to={state.to || currentState.to}
+                        step={5}
+                        onSelect={adaptState(changeState)}
+                        dark/>
+                }
+            }
+        </StateContainer>
     });
 
 
@@ -85,4 +102,20 @@ storiesOf('Time Picker', module)
                 }
             }
         </StateContainer>
-    });
+    })
+    .add('dark theme', () => {
+
+        console.log(currentState);
+
+        return <StateContainer>
+            {
+                (state, changeState) => {
+                    return <TimePicker
+                        time={state.from || currentState.from}
+                        step={5}
+                        onSelect={adaptState(changeState)}
+                        dark />
+                }
+            }
+        </StateContainer>
+    })
