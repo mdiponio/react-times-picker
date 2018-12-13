@@ -1,8 +1,10 @@
- {
-  "name": "@euvs/react_times",
+{
+  "name": "@euvs/time_picker",
   "version": "0.2.0",
   "private": false,
   "license": "MIT",
+  "homepage": "https://github.com/mdiponio/react_times",
+  "repository": "github:mdiponio/react_times",
   "main": "dist/index.js",
   "dependencies": {
     "classnames": "^2.2.6",

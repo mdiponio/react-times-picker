@@ -52,7 +52,7 @@ const adaptState = (cb) => (from, to) => {
 
 storiesOf('Time Ranger Picker', module)
     .addDecorator(CenterDecorator)
-    .add('1', () => {
+    .add('default', () => {
         return <StateContainer>
             {
                 (state, changeState) => {
@@ -70,7 +70,7 @@ storiesOf('Time Ranger Picker', module)
 
 storiesOf('Time Picker', module)
     .addDecorator(CenterDecorator)
-    .add('1', () => {
+    .add('default', () => {
 
         console.log(currentState);
 
