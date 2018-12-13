@@ -209,7 +209,8 @@ class ScrollColumn extends React.Component {
                 return;
             }
 
-            this._scroll = clamp(this._scroll + dt, -(this.state.range.length - 1) * this._height, 0);
+            this._scroll = Math.round(clamp(this._scroll + dt,
+                -(this.state.range.length - 1) * this._height, 0) / this._height) * this._height;
             this._setScroll(this._scroll);
 
             const i = Math.round(-this._scroll / this._height);
