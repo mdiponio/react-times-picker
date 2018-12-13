@@ -3,7 +3,7 @@ import React from 'react';
 import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 
-import {TimeRange, TimePicker} from "../src";
+import {TimeRangePicker, TimePicker, TimeRange} from "../src";
 
 import "../src/TimeRange/ScrollColumn.css";
 import "../src/TimeRange/TimeRange.css";
