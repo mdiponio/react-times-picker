@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    "skipLibCheck": false,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "allowJs": true,
+    "rootDirs": [
+      "./src"
+    ],
+    "sourceRoot": "./src",
+    "noImplicitAny": false,
+    "lib": [
+      "es2015",
+      "es6",
+      "dom",
+      "esnext",
+      "esnext.asynciterable"
+    ]
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/__tests__"
+  ]
+}

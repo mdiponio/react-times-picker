@@ -1,0 +1,47 @@
+{
+  "name": "@euvs/time_picker",
+  "version": "0.1.0",
+  "private": false,
+  "main": "dist/index.js",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "prop-types": "latest",
+    "react-scripts": "2.0.4",
+    "typescript": "^3.2.2"
+  },
+  "peerDependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  },
+  "scripts": {
+    "build": "rm -rf dist && npm run build-js && npm run build-css",
+    "build-js": "tsc -p tsconfig.json",
+    "build-css": "find src -type f -name '*.css' -exec cat {} \\;  > dist/style.css",
+    "build-sass": "node-sass ./src/**/*.css /dist",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@storybook/addon-actions": "^4.1.1",
+    "@storybook/addon-links": "^4.1.1",
+    "@storybook/addons": "^4.1.1",
+    "@storybook/react": "^4.1.1",
+    "babel-loader": "^8.0.4",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "node-sass": "^4.11.0"
+  },
+  "files": [
+    "dist/*"
+  ]
+}
