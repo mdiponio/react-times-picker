@@ -1,4 +1,5 @@
-# time_picker
+# React Times
+
 An awesome time picker for React!
 
 Provides two components to allow minute of day time to selected:
