@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import {formatMin} from "../utils/utility";
 
-// import "./TimeRange.css";
 import TimeRangePanel from "./TimeRangePanel";
 
 /**

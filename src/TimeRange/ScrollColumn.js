@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-// import "./ScrollColumn.css";
 import {clamp} from "../utils/utility";
 import {getPosition} from "../utils/events";
 import Event from "./Event";
@@ -349,7 +348,7 @@ class ScrollColumn extends React.Component {
         {
             for (const v of this.state.range)
             {
-                if (v.toUpperCase().startsWith(value.toUpperCase()))
+                if (v instanceof String && v.toUpperCase().startsWith(value.toUpperCase()))
                 {
                     this._setValue(v);
                     break;
