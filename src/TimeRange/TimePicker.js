@@ -13,7 +13,7 @@ export class TimePicker extends React.Component
 {
     static propTypes = {
         className: PropTypes.string,
-        time: PropTypes.number,
+        min: PropTypes.number,
         onSelect: PropTypes.func,
         step: PropTypes.number,
         amPm: PropTypes.bool,
@@ -54,11 +54,11 @@ export class TimePicker extends React.Component
             <div className={classNames(classes)}>
                 <Event type="span" className={ classNames({"open": this.state.open })}
                        onMouseDown={this._toggleOpen} onTouchStart={this._toggleOpen}>
-                    {formatMin(this.props.time, this.props.amPm)}
+                    {formatMin(this.props.min, this.props.amPm)}
                 </Event>
 
                 {this.state.open && <TimeRangePanel left
-                                                    min={this.props.time}
+                                                    min={this.props.min}
                                                     step={this.props.step}
                                                     onChange={this.props.onSelect}
                                                     onClose={() => this.setState({open: false})}/>}

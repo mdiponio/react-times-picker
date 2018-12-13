@@ -3,8 +3,9 @@
   "version": "0.3.0",
   "private": false,
   "license": "MIT",
-  "homepage": "https://github.com/mdiponio/react_times",
-  "repository": "github:mdiponio/react_times",
+  "homepage": "https://github.com/mdiponio/react-times-picker",
+  "repository": "github:mdiponio/react-times-picker",
+  "bugs": "https://github.com/mdiponio/react-times-picker/issues",
   "main": "dist/index.js",
   "dependencies": {
     "classnames": "^2.2.6",

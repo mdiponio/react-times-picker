@@ -96,7 +96,7 @@ storiesOf('Time Picker', module)
                 (state, changeState) => {
                     return <TimePicker
                         className={"blah"}
-                        time={state.from || currentState.from}
+                        min={state.from || currentState.from}
                         step={5}
                         onSelect={adaptState(changeState)}/>
                 }
@@ -111,7 +111,7 @@ storiesOf('Time Picker', module)
             {
                 (state, changeState) => {
                     return <TimePicker
-                        time={state.from || currentState.from}
+                        min={state.from || currentState.from}
                         step={5}
                         onSelect={adaptState(changeState)}
                         dark />
