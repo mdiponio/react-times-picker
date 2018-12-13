@@ -39,10 +39,28 @@ export function formatMinSec(seconds) {
  * Format time value in minutes to hour minute representation.
  *
  * @param {number} min minutes value
+ * @param {boolean} [amPm] whether 24 hr or am/pm time
  * @return {string} formatted minutes
  */
-export function formatMin(min) {
-    return pad(Math.floor(min / 60), 2) + ":" + pad(min % 60);
+export function formatMin(min, amPm = false) {
+    let hr = Math.floor(min / 60)
+    let suf;
+
+    if (amPm)
+    {
+        const pm = min >= 12 * 60;
+        if (pm)
+        {
+            hr -= 12;
+            suf = " PM"
+        }
+        else
+            suf = " AM";
+    }
+    else
+        suf = "";
+
+    return pad(hr, 2) + ":" + pad(min % 60) + suf;
 }
 
 /**

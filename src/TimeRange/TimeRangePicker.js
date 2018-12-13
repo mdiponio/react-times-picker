@@ -17,13 +17,15 @@ export class TimeRangePicker extends React.Component {
         to: PropTypes.number,
         step: PropTypes.number,
         onSelect: PropTypes.func,
+        amPm: PropTypes.bool,
         dark: PropTypes.bool
     };
 
     static defaultProps = {
         step: 15,
         className: "",
-        dark: false
+        dark: false,
+        amPm: true
     };
 
     constructor(props) {
@@ -114,7 +116,7 @@ export class TimeRangePicker extends React.Component {
             <div className={classNames(classes)}>
                 <Event type="span" className={ classNames({"time-from": true, "open": this.state.open && this.state.from })}
                        onMouseDown={this._toggleFromOpen} onTouchStart={this._toggleFromOpen}>
-                    {formatMin(this.props.from)}
+                    {formatMin(this.props.from, this.props.amPm)}
                 </Event>
 
                 <svg viewBox="0 0 1000 1000">
@@ -123,7 +125,7 @@ export class TimeRangePicker extends React.Component {
 
                 <Event type="span" className={ classNames({"time-to": true, "open": this.state.open && this.state.to })}
                        onMouseDown={this._toggleToOpen} onTouchStart={this._toggleToOpen}>
-                    {formatMin(this.props.to)}
+                    {formatMin(this.props.to, this.props.amPm)}
                 </Event>
 
                 {this.state.open && <TimeRangePanel left={this.state.from}

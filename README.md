@@ -1,9 +1,11 @@
-# (awesome) React Times
+# (awesome) React Times Picker
 
 An awesome time picker for React!
 
   * TimePicker - pick a minute of day
   * TimeRangePicker - pick a time range in a day
+  
+  ![storybook](storybook.png)
   
 ## Test it out
 
