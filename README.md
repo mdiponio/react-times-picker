@@ -93,6 +93,7 @@ class ExampleRange extends React.Component {
 | `from`       | Range start time of day in minutes. | number | y | |
 | `to`       | Range end time of day in minutes. This is at minimum `step` minutes after `from`. | number | y | |
 | `onSelect`  | Event triggered when time picked. When function is called, it is passed a new `from` and `to` values. . <br>**Must to set to update both `from` and `to` prop values!!!** | function | y ||
+| `maxGap`    | Maximum duration in minutes between from and to times. | number | n || 
 | `step`      | Increment between minutes. | number | n | 15 | 
 | `amPm`      | Whether to display time in AM PM format or 24hr format. | boolean | n | true |
 | `dark`      | Whether to use dark theme. | boolean | n | false|

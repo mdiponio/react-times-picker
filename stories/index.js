@@ -84,8 +84,8 @@ storiesOf('Time Ranger Picker', module)
                 (state, changeState) => {
                     return <TimeRangePicker
                         className={"blah"}
-                        from={state.from || currentState.from}
-                        to={state.to || currentState.to}
+                        from={state.from || defaultState.from}
+                        to={state.to || defaultState.to}
                         maxGap={3 * 60}
                         step={5}
                         onSelect={adaptState(changeState)} />

@@ -81,7 +81,7 @@ export class TimeRangePicker extends React.Component {
                 to = from + this.props.maxGap;
         }
 
-        
+
         if (from < 0)
         {
             to += -from;
