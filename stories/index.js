@@ -11,9 +11,8 @@ import "../src/TimeRange/ThemeDark.css";
 import "../src/TimeRange/ThemeLight.css";
 
 
-const styles = {
+const styles = {};
 
-};
 const CenterDecorator = (storyFn) => (
     <div style={styles}>
         {storyFn()}
@@ -35,20 +34,17 @@ class StateContainer extends React.Component {
         const state = this.state;
         return this.props.children(this.state, this.changeState);
     }
-
 }
 
-let currentState = {
+let defaultState = {
     from: 1080,
     to: 1140
 };
 
 const adaptState = (cb) => (from, to) => {
-    currentState.from = from;
-    currentState.to = to;
-
-    action("new state")(currentState);
-    cb(currentState)
+    const newState = {from, to}
+    action("new state")(newState);
+    cb(newState)
 };
 
 
@@ -60,8 +56,8 @@ storiesOf('Time Ranger Picker', module)
                 (state, changeState) => {
                     return <TimeRangePicker
                         className={"blah"}
-                        from={state.from || currentState.from}
-                        to={state.to || currentState.to}
+                        from={state.from || defaultState.from}
+                        to={state.to || defaultState.to}
                         step={5}
                         onSelect={adaptState(changeState)}/>
                 }
@@ -73,9 +69,8 @@ storiesOf('Time Ranger Picker', module)
             {
                 (state, changeState) => {
                     return <TimeRangePicker
-                        className={"blah"}
-                        from={state.from || currentState.from}
-                        to={state.to || currentState.to}
+                        from={state.from || defaultState.from}
+                        to={state.to || defaultState.to}
                         step={5}
                         onSelect={adaptState(changeState)}
                         dark/>
@@ -102,16 +97,28 @@ storiesOf('Time Ranger Picker', module)
 
 storiesOf('Time Picker', module)
     .addDecorator(CenterDecorator)
-    .add('default', () => {
-
-        console.log(currentState);
+    .add('default (am/pm)', () => {
 
         return <StateContainer>
             {
                 (state, changeState) => {
                     return <TimePicker
-                        className={"blah"}
-                        min={state.from || currentState.from}
+                        amPm={true}
+                        min={state.from || defaultState.from}
+                        step={5}
+                        onSelect={adaptState(changeState)}/>
+                }
+            }
+        </StateContainer>
+    })
+    .add('default (24h)', () => {
+
+        return <StateContainer>
+            {
+                (state, changeState) => {
+                    return <TimePicker
+                        amPm={false}
+                        min={state.from || defaultState.from}
                         step={5}
                         onSelect={adaptState(changeState)}/>
                 }
@@ -120,17 +127,15 @@ storiesOf('Time Picker', module)
     })
     .add('dark theme', () => {
 
-        console.log(currentState);
-
         return <StateContainer>
             {
                 (state, changeState) => {
                     return <TimePicker
-                        min={state.from || currentState.from}
+                        min={state.from || defaultState.from}
                         step={5}
                         onSelect={adaptState(changeState)}
-                        dark />
+                        dark/>
                 }
             }
         </StateContainer>
-    })
+    });
