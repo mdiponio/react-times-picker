@@ -82,6 +82,21 @@ storiesOf('Time Ranger Picker', module)
                 }
             }
         </StateContainer>
+    })
+    .add('3 hour max gap', () => {
+        return <StateContainer>
+            {
+                (state, changeState) => {
+                    return <TimeRangePicker
+                        className={"blah"}
+                        from={state.from || currentState.from}
+                        to={state.to || currentState.to}
+                        maxGap={3 * 60}
+                        step={5}
+                        onSelect={adaptState(changeState)} />
+                }
+            }
+        </StateContainer>
     });
 
 

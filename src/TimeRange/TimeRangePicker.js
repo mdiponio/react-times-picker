@@ -16,6 +16,7 @@ export class TimeRangePicker extends React.Component {
         from: PropTypes.number,
         to: PropTypes.number,
         step: PropTypes.number,
+        maxGap: PropTypes.number,
         onSelect: PropTypes.func,
         amPm: PropTypes.bool,
         dark: PropTypes.bool
@@ -23,6 +24,7 @@ export class TimeRangePicker extends React.Component {
 
     static defaultProps = {
         step: 15,
+        maxGap: 24 * 60,
         className: "",
         dark: false,
         amPm: true
@@ -66,27 +68,30 @@ export class TimeRangePicker extends React.Component {
         if (to - from < this.props.step)
         {
             if (to === this.props.to)
-            {
-                /* From changed. */
-                if (from < 24 * 60)
-                    to = from + this.props.step;
-                else
-                {
-                    to = 24 * 60;
-                    from = to - this.props.step;
-                }
-            }
+                to = from + this.props.step;
             else
-            {
-                if (to >= this.props.step)
-                    from = to - this.props.step;
-                else
-                {
-                    from = 0;
-                    to = this.props.step;
-                }
-            }
+                from = to - this.props.step;
+        }
+        else if (to - from > this.props.maxGap)
+        {
+            /* The maximum difference between from and to should be the set max gap. */
+            if (from === this.props.from)
+                from = to - this.props.maxGap;
+            else
+                to = from + this.props.maxGap;
+        }
 
+        
+        if (from < 0)
+        {
+            to += -from;
+            from = 0;
+        }
+
+        if (to >= 24 * 60)
+        {
+            from -= to - 24 * 60;
+            to = 24 * 60;
         }
 
         if (from !== this.props.from || to !== this.props.to)
