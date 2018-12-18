@@ -19,11 +19,11 @@ export default function withMaskedTouch(WrappedComponent) {
         };
 
         componentWillMount() {
-            document.addEventListener("touchstart", this._maskTouch, { passive: false });
+            document.addEventListener("touchmove", this._maskTouch, { passive: false });
         }
 
         componentWillUnmount() {
-            document.removeEventListener("touchstart", this._maskTouch);
+            document.removeEventListener("touchmove", this._maskTouch);
         }
 
         render() {
