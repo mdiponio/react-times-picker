@@ -10,7 +10,7 @@ An awesome time picker for React!
 ## Testing it out
 
 ```
-$ git clone https://github.com/mdiponio/react-times.git
+$ git clone https://github.com/mdiponio/react-times-picker
 
 $ npm install
 
