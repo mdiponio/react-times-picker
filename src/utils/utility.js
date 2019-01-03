@@ -52,6 +52,7 @@ export function formatMin(min, amPm = false) {
         if (pm)
         {
             hr -= 12;
+            if (hr === 0) hr = 12;
             suf = " PM"
         }
         else
